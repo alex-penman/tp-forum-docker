@@ -157,7 +157,7 @@ ARG DISCOURSE_BRANCH=main
 
 # Discourse specific bits
 RUN install -dm 0755 -o discourse -g discourse /var/www/discourse &&\
-    sudo -u discourse git clone --branch $DISCOURSE_BRANCH --filter=tree:0 https://github.com/discourse/discourse.git /var/www/discourse &&\
+    sudo -u discourse git clone --branch $DISCOURSE_BRANCH --filter=tree:0 https://github.com/alex-penman/tp-forum.git /var/www/discourse &&\
     gem install bundler --conservative -v $(awk '/BUNDLED WITH/ { getline; gsub(/ /,""); print $0 }' /var/www/discourse/Gemfile.lock)
 
 FROM discourse_slim AS discourse_release
